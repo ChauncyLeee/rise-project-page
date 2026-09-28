@@ -1,0 +1,106 @@
+/* Cinematic introduction, with one continuous paper title and delivery sequence. */
+html{scroll-padding-top:32px}
+.hero-shell{position:relative;isolation:isolate;background:#080f16;color:#f4f5f3;overflow:hidden}
+.hero-shell .topbar{position:absolute;inset:0 0 auto;z-index:4;max-width:1512px;padding:32px 56px;border:0}
+.hero-shell .brand{color:#f2f5ed;font-size:28px;font-weight:700;letter-spacing:-1.3px;max-width:none;line-height:1}
+.hero-shell .brand span{color:#a8d7c3}
+.hero-shell .topbar nav{gap:34px;align-items:center;font-size:13px}
+.hero-shell nav a{color:#bdcbc9;transition:color .2s}
+.hero-shell nav a:hover{color:white;text-decoration:none}
+.hero{position:relative;min-height:max(780px,100svh);padding:150px max(56px,calc((100vw - 1400px)/2)) 0;display:flex;flex-direction:column}
+.hero-visual{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 78% 44%,#1c3d44 0%,#0e2028 32%,#080f16 72%)}
+#hero-canvas{display:block;width:100%;height:100%}
+.hero-mask{position:absolute;inset:0;background:linear-gradient(90deg,#080f16 0%,#080f16ed 23%,#080f1694 41%,#080f1614 59%,transparent 73%),linear-gradient(0deg,#080f16 0%,#080f1677 12%,transparent 29%,transparent 87%,#080f1644 100%)}
+.hero-grain{position:absolute;inset:0;opacity:.017;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' opacity='.6' d='M0 0h180v180H0z'/%3E%3C/svg%3E")}
+.hero-content{position:relative;z-index:1;width:min(48%,650px);margin:auto 0;padding:25px 0 45px}
+.hero h1{margin:0;color:#ecf0ec;font-size:clamp(34px,3.15vw,50px);line-height:1.22;font-weight:450;letter-spacing:-1.7px;text-wrap:pretty;animation:title-arrive 2s cubic-bezier(.2,.65,.25,1) both}
+.hero-wordmark{font-weight:700;color:#d8ebd3;font-size:1.2em;letter-spacing:-2px;white-space:nowrap}
+.hero-affiliation{font-size:15px;letter-spacing:.15px;color:#a7bcbf;margin:30px 0 26px;animation:details-arrive 1.5s .25s both}
+.hero-resources{display:flex;align-items:stretch;gap:12px;animation:details-arrive 1.5s .35s both}
+.hero-resource{display:inline-flex;align-items:center;justify-content:center;gap:11px;min-height:54px;min-width:125px;padding:13px 18px;background:#14282dc4;border:1px solid #708d896b;border-radius:5px;color:#e1eae5;font-size:15px;font-weight:500;transition:background .2s,border-color .2s,transform .2s;box-shadow:0 5px 22px #00000012}
+.hero-resource svg{width:21px;height:21px;flex-shrink:0}
+.hero-resource .resource-arrow{margin-left:5px;font-size:17px}
+.hero-resource:hover{color:white;background:#28423fcc;border-color:#aec9b9;transform:translateY(-2px);text-decoration:none}
+.hero-resource.resource-code{min-width:129px;cursor:default}
+.resource-code>span{line-height:1.1;text-align:left}
+.resource-code small{display:block;margin-top:5px;font-size:9px;font-weight:400;color:#aabdbb;letter-spacing:.15px}
+.hero-demo-link{display:inline-flex;gap:25px;align-items:center;color:#adc8c3;font-size:13px;margin-top:27px;animation:details-arrive 1.5s .45s both}
+.hero-demo-link:hover{color:#eff4ed;text-decoration:none}
+.hero-demo-link span{font-size:18px}
+.hero-footer{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;position:relative;z-index:2;margin-top:auto;padding:16px 0 38px}
+.hero-scroll{display:flex;align-items:center;justify-content:center;color:#a7bfbd;width:36px;height:44px}
+.hero-scroll svg{height:26px;width:26px;transition:transform .3s}
+.hero-scroll:hover svg{transform:translateY(4px)}
+.mission-controls{width:350px;max-width:60%}
+.mission-control-row{display:flex;align-items:center;justify-content:space-between;color:#bacdc8;font-size:14px;line-height:1.5}
+.mission-control-row>div{display:flex;gap:7px}
+.mission-control-row button{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:0;border-radius:3px;background:none;color:#99b7b5}
+.mission-control-row button:hover{background:#aac9b51a;color:#e8f3e8}
+.mission-control-row svg{width:18px;height:18px}
+#mission-progress{display:block;width:100%;margin:10px 0 0;height:14px;background:transparent;cursor:pointer;appearance:none;--progress:0%}
+#mission-progress::-webkit-slider-runnable-track{height:2px;background:linear-gradient(to right,#d3bc91 var(--progress),#648c8938 var(--progress));border-radius:2px}
+#mission-progress::-moz-range-track{height:2px;background:#648c8938}
+#mission-progress::-moz-range-progress{height:2px;background:#d3bc91}
+#mission-progress::-webkit-slider-thumb{appearance:none;width:6px;height:6px;margin-top:-2px;border-radius:50%;background:#d4c29d;box-shadow:0 0 8px #d4c29d55}
+#mission-progress::-moz-range-thumb{width:6px;height:6px;border:0;border-radius:50%;background:#d4c29d}
+.hero-shell :focus-visible{outline:2px solid #d8eddb;outline-offset:5px}
+main{padding-top:75px}.abstract h2{font-size:32px;letter-spacing:-1px;margin-bottom:30px}.method-section{padding-bottom:65px}
+@keyframes title-arrive{0%{opacity:0;transform:translate3d(0,28px,0);filter:blur(5px)}65%{opacity:1;transform:translate3d(0,-5px,0);filter:blur(0)}100%{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}}
+@keyframes details-arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1700px){.hero-content{width:650px}.hero h1{font-size:53px}}
+@media(max-width:1100px){.hero-shell .topbar{padding:28px 32px}.hero{padding:125px 32px 0}.hero-content{width:53%}.hero h1{font-size:36px;letter-spacing:-1.3px}.hero-resource{gap:8px;min-width:106px;padding:12px 14px;font-size:14px}.hero-resource.resource-code{min-width:112px}.hero-resource svg{width:19px;height:19px}.hero-resources{gap:10px}.hero-affiliation{font-size:13px}}
+@media(max-width:700px){.hero-shell .topbar{padding:25px 24px}.hero-shell .brand{font-size:25px}.hero-shell .topbar nav{gap:20px;font-size:12px}.hero-shell .topbar nav a:nth-child(2),.hero-shell .nav-benchmarks{display:none}.hero{min-height:1080px;padding:118px 24px 0}.hero-content{width:100%;max-width:530px;margin:0;padding:0}.hero h1{font-size:34px;line-height:1.23;letter-spacing:-1px}.hero-wordmark{letter-spacing:-1px}.hero-affiliation{font-size:13px;margin:23px 0}.hero-resources{gap:9px}.hero-resource{font-size:13px;min-width:0;min-height:51px;padding:11px 14px;gap:8px}.hero-resource.resource-code{min-width:0}.hero-resource svg{width:18px;height:18px}.hero-resource .resource-arrow{display:none}.resource-code small{font-size:8px}.hero-demo-link{font-size:12px;margin-top:20px}.hero-mask{background:linear-gradient(0deg,#080f16 0%,transparent 17%,transparent 43%,#080f16b8 61%,#080f16 77%)}.hero-footer{padding:25px 0 25px}.mission-controls{width:275px;max-width:80%}.mission-control-row{font-size:12px}.hero-scroll svg{width:22px;height:22px}main{padding-top:48px}.abstract h2{font-size:28px}}
+@media(max-width:360px){.hero{padding-left:18px;padding-right:18px;min-height:1070px}.hero-shell .topbar{padding-left:18px;padding-right:18px}.hero h1{font-size:30px}.hero-resource{padding:10px 11px;gap:7px}.hero-resources{gap:7px}}
+@media(prefers-reduced-motion:reduce){.hero h1,.hero-affiliation,.hero-resources,.hero-demo-link{animation:none}.hero-resource:hover,.hero-scroll:hover svg{transform:none}}
+
+/* A continuous editorial surface from the introduction through the research. */
+.hero-shell{--bg:#080f16;--panel:#102027;--line:#31474a;--ink:#e3ebe6;--muted:#a6bab9;--accent:#b7d6c2;--soft:#172d32;color-scheme:dark}
+body{background:var(--bg)}
+.hero-shell .topbar{justify-content:flex-end}
+.hero{padding-top:145px}
+.hero-content{width:100%;max-width:1400px;margin:0;padding:0;pointer-events:none}
+.hero-content a,.hero-content button{pointer-events:auto}
+.hero h1{max-width:1400px;font-size:clamp(30px,3.05vw,48px);line-height:1.23;letter-spacing:-1.3px;text-wrap:balance}
+.hero-wordmark{font-size:1.08em}
+.hero-affiliation{margin:28px 0 22px}
+.hero-mask{background:linear-gradient(180deg,#080f16 0%,#080f16ed 13%,#080f1690 29%,transparent 45%),linear-gradient(90deg,#080f16 0%,#080f16c9 24%,transparent 63%),linear-gradient(0deg,#080f16 0%,#080f16a6 8%,transparent 25%)}
+main{padding-top:84px;padding-bottom:64px}
+.abstract{margin-bottom:84px}
+.abstract h2{text-align:left}
+h2{font-size:30px;font-weight:500;letter-spacing:-.7px}
+/* Below the hero, retain the original fixed light research-page palette. */
+.abstract p{font-size:16px;line-height:1.95}
+.method-section,.demos-section,.libero-section,.hm3d-section{padding-top:48px;padding-bottom:52px}
+.demo-card{border-radius:10px}
+footer{padding:30px 0;color:var(--muted)}
+/* Reveal movement follows native scrolling; wheel/touch events are never captured. */
+@supports(animation-timeline:view()){
+ @media(prefers-reduced-motion:no-preference){
+  main>section{animation:section-enter linear both;animation-timeline:view();animation-range:entry 0% entry 22%}
+ }
+}
+@keyframes section-enter{from{opacity:.65;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1700px){.hero-content{width:100%;max-width:1400px}.hero h1{font-size:48px}}
+@media(min-width:701px) and (max-width:1100px){.hero{padding-top:125px}.hero-content{width:100%}.hero h1{font-size:clamp(25px,3.05vw,34px)}.hero-affiliation{margin-top:24px}}
+@media(max-width:700px){
+ .hero{padding-top:112px;min-height:990px}
+ .hero-content{width:100%;max-width:none}
+ .hero h1{font-size:clamp(23px,6.2vw,32px);line-height:1.3;letter-spacing:-.65px}
+ .hero-affiliation{margin:22px 0}
+ .hero-mask{background:linear-gradient(180deg,#080f16 0%,#080f16e6 33%,transparent 56%),linear-gradient(0deg,#080f16 0%,transparent 22%)}
+ main{padding-top:55px}.abstract{margin-bottom:55px}.abstract p{font-size:14px}
+ .abstract h2,h2{font-size:26px}
+ .method-section,.demos-section,.libero-section,.hm3d-section{padding-top:32px;padding-bottom:36px}
+}
+body{background:var(--bg)}
+@supports(animation-timeline:view()){
+ @media(prefers-reduced-motion:no-preference){
+  .hero-shell{view-timeline-name:--hero-scroll;view-timeline-axis:block}
+  .hero-visual{animation:hero-scroll-drift linear both;animation-timeline:--hero-scroll;animation-range:exit 0% exit 100%}
+ }
+}
+@keyframes hero-scroll-drift{from{transform:translateY(0);opacity:1}to{transform:translateY(85px);opacity:.25}}
+
+/* Restore the original dark illustration palette without color filters. */
+#hero-canvas{filter:none}
+@media(min-width:701px){.hero-mask{background:linear-gradient(180deg,#080f16 0%,#080f16ed 12%,#080f1655 27%,transparent 40%),linear-gradient(0deg,#080f16 0%,#080f1677 5%,transparent 15%)}}
